@@ -33,7 +33,6 @@ export type RecipeDetailsContextType = {
   handleLeftClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
   handleRightClick: (event: React.MouseEvent<HTMLButtonElement>) => void,
   carousel: any
-
 };
 
 export type RecipeProviderType = {
