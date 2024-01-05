@@ -1,0 +1,34 @@
+.form-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #ECD400 19.5%, #ecd40000 100%);
+}
+
+.container-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-form input {
+  background-color: transparent;
+  border: 1px solid #590202;
+}
+
+.btn-enter {
+  border: none;
+  background-color: #590202;
+  padding: 7px 5px;
+  color: white;
+  border-radius: 5px;
+}
+
+.btn-enter:disabled {
+  border: none;
+  background-color: #8b4545;
+  padding: 7px 5px;
+  color: black;
+  border-radius: 5px;
+}
