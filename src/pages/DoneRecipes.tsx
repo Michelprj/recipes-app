@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { DoneRecipeType } from '../types';
 import ShareButton from '../components/ShareButton';
-import Header from '../components/Header';
+import Header from '../components/header/index';
 
 function DoneRecipes() {
   const getDoneRecipes: DoneRecipeType[] = JSON

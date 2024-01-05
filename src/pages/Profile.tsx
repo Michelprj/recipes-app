@@ -2,7 +2,7 @@ import { Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Header from '../components/header/index';
 import ProfileCards from '../components/ProfileCards';
 
 function Profile() {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-import Header from '../components/Header';
+import Header from '../components/header/index';
 import ShareButton from '../components/ShareButton';
 
 import favoriteIconBlack from '../images/blackHeartIcon.svg';

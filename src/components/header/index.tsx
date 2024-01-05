@@ -1,7 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
-import { HeaderType } from '../types';
-import SearchContext from '../context/SearchContext';
+import { HeaderType } from '../../types';
+import SearchContext from '../../context/SearchContext';
+import './style.css';
 
 function Header({ children }: HeaderType) {
   const [showSearch, setShowSearch] = useState(false);
@@ -20,20 +21,24 @@ function Header({ children }: HeaderType) {
 
   return (
     <div>
-      <button onClick={ () => navigate('/profile') }>
-        <img
-          src="src/images/profileIcon.svg"
-          data-testid="profile-top-btn"
-          alt="profile"
-        />
+      <div className="container-header">
+        <img src="/logoHeader.svg" alt="Logo Header" />
 
-      </button>
-      {
+        <div className="container-icons">
+          <button onClick={ () => navigate('/profile') }>
+            <img
+              src="/iconProfile.svg"
+              data-testid="profile-top-btn"
+              alt="profile"
+            />
+
+          </button>
+          {
         !searchView()
         && (
           <button onClick={ () => setShowSearch(!showSearch) }>
             <img
-              src="src/images/searchIcon.svg"
+              src="/iconSearch.svg"
               data-testid="search-top-btn"
               alt="search"
             />
@@ -41,6 +46,8 @@ function Header({ children }: HeaderType) {
           </button>
         )
       }
+        </div>
+      </div>
       <h1 data-testid="page-title">{children}</h1>
       {
         showSearch

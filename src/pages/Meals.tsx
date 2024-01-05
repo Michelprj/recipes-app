@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import Header from '../components/Header';
+import Header from '../components/header/index';
 import SearchBar from './SearchBar';
 import Footer from '../components/Footer';
 import SearchContext from '../context/SearchContext';
