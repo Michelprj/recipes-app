@@ -36,8 +36,10 @@ function Login() {
       className="form-container"
     >
       <div className="container-form">
-        <img src="/logo.png" alt="logo" />
-        <img src="/backgroundLogin.png" alt="fruits" />
+        <div className="container-images">
+          <img src="/logo.png" alt="logo" />
+          <img src="/backgroundLogin.png" alt="fruits" />
+        </div>
         <Form.Label htmlFor="email">
           <Form.Control
             name="email"
