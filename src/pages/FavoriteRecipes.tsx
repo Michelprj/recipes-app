@@ -114,7 +114,7 @@ function FavoriteRecipes() {
 
   return (
     <>
-      <Header>Favorite Recipes</Header>
+      <Header iconPage="/iconFavorite.svg">Favorite Recipes</Header>
 
       <button
         data-testid="filter-by-all-btn"

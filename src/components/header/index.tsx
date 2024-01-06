@@ -1,10 +1,13 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useContext, useState } from 'react';
+import { Form } from 'react-bootstrap';
 import { HeaderType } from '../../types';
 import SearchContext from '../../context/SearchContext';
 import './style.css';
+import SearchBar from '../../pages/SearchBar';
 
-function Header({ children }: HeaderType) {
+function Header({ children, iconPage,
+  endIngredients, endName, endFirstLetter }: HeaderType) {
   const [showSearch, setShowSearch] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,14 +28,6 @@ function Header({ children }: HeaderType) {
         <img src="/logoHeader.svg" alt="Logo Header" />
 
         <div className="container-icons">
-          <button onClick={ () => navigate('/profile') }>
-            <img
-              src="/iconProfile.svg"
-              data-testid="profile-top-btn"
-              alt="profile"
-            />
-
-          </button>
           {
         !searchView()
         && (
@@ -46,18 +41,42 @@ function Header({ children }: HeaderType) {
           </button>
         )
       }
+          <button onClick={ () => navigate('/profile') }>
+            <img
+              src="/iconProfile.svg"
+              data-testid="profile-top-btn"
+              alt="profile"
+            />
+
+          </button>
         </div>
       </div>
-      <h1 data-testid="page-title">{children}</h1>
+
+      <div className="container-title">
+        <img src={ iconPage } alt="Icon page" />
+        <h1 data-testid="page-title">{children}</h1>
+      </div>
       {
         showSearch
-        && <input
-          type="text"
-          data-testid="search-input"
-          onChange={ handleChange }
-          value={ values.search }
-          name="search"
-        />
+        && (
+          <div className="container-search">
+            <Form.Control
+              type="text"
+              data-testid="search-input"
+              onChange={ handleChange }
+              value={ values.search }
+              name="search"
+              autoComplete="off"
+              className="input-search"
+            />
+
+            <SearchBar
+              endIngredients={ endIngredients }
+              endName={ endName }
+              endFirstLetter={ endFirstLetter }
+            />
+          </div>
+        )
       }
     </div>
   );

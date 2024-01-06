@@ -24,7 +24,7 @@ function Profile() {
 
   return (
     <>
-      <Header>Profile</Header>
+      <Header iconPage="/iconProfilePage.svg">Profile</Header>
       <span data-testid="profile-email">{userEmail}</span>
       <ProfileCards />
       <Footer />

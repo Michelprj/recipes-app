@@ -2,6 +2,10 @@ import { ReactNode } from 'react';
 
 export type HeaderType = {
   children: ReactNode,
+  iconPage: string,
+  endIngredients: string,
+  endName: string,
+  endFirstLetter: string,
 };
 
 export type ChildrenType = {

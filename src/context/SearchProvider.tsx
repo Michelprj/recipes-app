@@ -18,7 +18,8 @@ function SearchProvider({ children }: SearchProviderType) {
   };
   const value = {
     handleChange,
-    values };
+    values,
+  };
 
   return (
     <SearchContext.Provider value={ value }>
