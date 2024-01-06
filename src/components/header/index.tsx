@@ -4,7 +4,7 @@ import { Form } from 'react-bootstrap';
 import { HeaderType } from '../../types';
 import SearchContext from '../../context/SearchContext';
 import './style.css';
-import SearchBar from '../../pages/SearchBar';
+import SearchBar from '../../pages/search/index';
 
 function Header({ children, iconPage,
   endIngredients, endName, endFirstLetter }: HeaderType) {
@@ -65,6 +65,7 @@ function Header({ children, iconPage,
               data-testid="search-input"
               onChange={ handleChange }
               value={ values.search }
+              placeholder="Search"
               name="search"
               autoComplete="off"
               className="input-search"
