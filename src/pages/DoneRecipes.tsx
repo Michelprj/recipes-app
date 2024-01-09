@@ -76,7 +76,15 @@ function DoneRecipes() {
 
   return (
     <>
-      <Header iconPage="/iconDone.svg">Done Recipes</Header>
+      <Header
+        endFirstLetter=""
+        endName=""
+        endIngredients=""
+        iconPage="/iconDone.svg"
+      >
+        Done Recipes
+
+      </Header>
 
       <button
         data-testid="filter-by-all-btn"

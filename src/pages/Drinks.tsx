@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import Header from '../components/header/index';
-import Footer from '../components/Footer';
+import Footer from '../components/footer/index';
 import SearchContext from '../context/SearchContext';
 import Recipes from '../components/Recipes';
 
