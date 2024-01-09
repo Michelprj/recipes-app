@@ -38,3 +38,53 @@
   color: white;
   font-weight: 600;
 }
+
+.container-iconsCategory {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+.container-iconsCategory button:first-child {
+  margin-bottom: 2vh;
+}
+
+.icon-category {
+  border: none;
+  background-color: transparent;
+}
+
+.container-all-recipes {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.container-card-category {
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+  height: auto;
+  border: 1px solid #B1B1B1;
+  border-radius: 5px;
+
+}
+
+.container-card-category img {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+}
+
+.container-all-recipes a {
+  text-decoration: none;
+  font-size: 13px;
+  color: #1A1B1C;
+  font-weight: 400;
+  font-family: Epilogue;
+}
+
+.container-all-recipes p {
+  margin: 5px 15px;
+}

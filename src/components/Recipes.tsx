@@ -102,15 +102,59 @@ function Recipes() {
     setFilteredCategories([]);
   };
   if (loading) return <div>Loading...</div>;
+
+  const handleIcons = (category: string) => {
+    switch (category) {
+      case 'Beef':
+        return '/beefIcon.svg';
+
+      case 'Breakfast':
+        return '/breakfastIcon.svg';
+
+      case 'Chicken':
+        return '/chickenIcon.svg';
+
+      case 'Dessert':
+        return '/dessertIcon.svg';
+
+      case 'Goat':
+        return '/goatIcon.svg';
+
+      case 'Ordinary Drink':
+        return '/ordinaryIcon.svg';
+
+      case 'Cocktail':
+        return '/cocktailIcon.svg';
+
+      case 'Shake':
+        return '/shakeIcon.svg';
+
+      case 'Other / Unknown':
+        return '/otherIcon.svg';
+
+      case 'Cocoa':
+        return '/cocoaIcon.svg';
+
+      default:
+        return 'icons';
+    }
+  };
+
   return (
     <div>
-      <div>
+      <div className="container-iconsCategory">
         <button
           type="button"
           data-testid="All-category-filter"
           onClick={ resetFilters }
+          className="icon-category"
         >
-          All
+          <img
+            src={ path === '/meals'
+              ? '/allIcon.svg'
+              : '/allDrinksIcon.svg' }
+            alt="All Icon"
+          />
         </button>
         { categories.slice(0, sizeCategories).map((category) => (
           <button
@@ -125,29 +169,33 @@ function Recipes() {
                 setFilteredCategories([category]);
               }
             } }
+            className="icon-category"
           >
-            { category.strCategory }
+            <img
+              src={ handleIcons(category.strCategory) }
+              alt="Icon Category"
+            />
           </button>
         ))}
       </div>
-      { filteredRecipes.slice(0, sizeRecipes).map((recipe, index) => (
-        <Link
-          key={ index }
-          to={ `${path}/${recipe.id}` }
-          data-testid={ `${index}-recipe-card` }
-        >
-          <div>
-            <img
-              src={ recipe.image }
-              alt={ recipe.name }
-              data-testid={ `${index}-card-img` }
-              style={ { width: '100vw', height: 'auto' } }
-            />
-            <p data-testid={ `${index}-card-name` }>{ recipe.name }</p>
-
-          </div>
-        </Link>
-      ))}
+      <div className="container-all-recipes">
+        { filteredRecipes.slice(0, sizeRecipes).map((recipe, index) => (
+          <Link
+            key={ index }
+            to={ `${path}/${recipe.id}` }
+            data-testid={ `${index}-recipe-card` }
+          >
+            <div className="container-card-category">
+              <img
+                src={ recipe.image }
+                alt={ recipe.name }
+                data-testid={ `${index}-card-img` }
+              />
+              <p data-testid={ `${index}-card-name` }>{ recipe.name }</p>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
