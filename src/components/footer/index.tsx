@@ -1,22 +1,21 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import './Footer.css';
+import './style.css';
 
 function Footer() {
   return (
-    <Navbar
-      data-bs-theme="primary"
-      fixed="bottom"
+    <nav
       data-testid="footer"
+      className="container-nav-bar"
     >
-      <Container>
+      <div className="container-links">
         <Nav className="me-auto nav-bar-footer justify-content-around">
           <Navbar.Brand
             href="/drinks"
           >
             <img
-              src="src/images/drinkIcon.svg"
+              src="/iconDrink.svg"
               data-testid="drinks-bottom-btn"
               width="30"
               height="30"
@@ -27,16 +26,16 @@ function Footer() {
             href="/meals"
           >
             <img
-              src="src/images/mealIcon.svg"
+              src="/iconMeals.svg"
               data-testid="meals-bottom-btn"
-              width="30"
-              height="30"
+              width="35"
+              height="35"
               alt="Ícone de comidas"
             />
           </Navbar.Brand>
         </Nav>
-      </Container>
-    </Navbar>
+      </div>
+    </nav>
   );
 }
 export default Footer;

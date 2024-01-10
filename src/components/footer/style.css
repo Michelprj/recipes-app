@@ -1,0 +1,15 @@
+.nav-bar-footer {
+  width: 100%;
+  background-color: #ECD400;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.container-nav-bar {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
