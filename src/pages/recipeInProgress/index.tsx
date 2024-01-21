@@ -1,9 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import RecipeDetailsContext from '../context/RecipeDetailsContext';
-import shareIcon from '../images/shareIcon.svg';
-import favoriteIconWhite from '../images/whiteHeartIcon.svg';
-import favoriteIconBlack from '../images/blackHeartIcon.svg';
+import RecipeDetailsContext from '../../context/RecipeDetailsContext';
+import '../recipeDetails/style.css';
+import './style.css';
 
 function RecipeInProgress() {
   const path = window.location.pathname;
@@ -14,13 +13,12 @@ function RecipeInProgress() {
   const indexCaractere = newPath.indexOf('/');
   const pathNameForStorage = newPath.slice(0, indexCaractere - 1);
   const { ingredients, measure, pageDrinks, pageMeals, recipe,
-    recommended, handleCopyClick, copyLink } = useContext(RecipeDetailsContext);
+    handleCopyClick, copyLink } = useContext(RecipeDetailsContext);
   const [isFavorite, setIsFavorite] = useState(false);
   const recipesInProgress = JSON
     .parse(localStorage.getItem('inProgressRecipes')
     || JSON.stringify({ meals: {}, drinks: {} }));
   const thisRecipe = recipesInProgress[`${type}`][`${id}`] || [];
-  const doneRecipes = JSON.parse(localStorage.getItem('doneRecipes') || '[]');
   const [ingredientsDone, setIngredientsDone] = useState<string[]>([]);
 
   const teste = () => {
@@ -41,7 +39,6 @@ function RecipeInProgress() {
       if (path === `/meals/${id}/in-progress`) {
         pageMeals(id);
         const getFavorite = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
-
         getFavorite
           .forEach((recipeFavorite: any) => {
             if (recipeFavorite.id.includes(id)) {
@@ -52,7 +49,6 @@ function RecipeInProgress() {
       if (path === `/drinks/${id}/in-progress`) {
         pageDrinks(id);
         const getFavorite = JSON.parse(localStorage.getItem('favoriteRecipes') || '[]');
-
         getFavorite
           .forEach((recipeFavorite: any) => {
             if (recipeFavorite.id.includes(id)) {
@@ -72,7 +68,6 @@ function RecipeInProgress() {
     } else {
       const newIngredientsDone = ingredients
         .filter((ingredient) => ingredient !== null && ingredient.length > 0);
-      // setIngredientsDone(newIngredientsDone);
       console.log(newIngredientsDone);
     }
   }, [ingredients]);
@@ -125,38 +120,45 @@ function RecipeInProgress() {
   };
   console.log(recipe);
   return (
-    <div>
+    <>
       {
         recipe.map((item) => (
           <div key={ id }>
-            <img
-              src={ item.strMealThumb || item.strDrinkThumb }
-              alt="recipe"
-              data-testid="recipe-photo"
-              style={ { width: '100vw', height: 'auto' } }
-            />
-            <h1 data-testid="recipe-title">{item.strMeal || item.strDrink}</h1>
-            {
+            <div className="container-header-recipes">
+              <img
+                src={ item.strMealThumb || item.strDrinkThumb }
+                alt="recipe"
+                data-testid="recipe-photo"
+                style={ { width: '100vw', height: 'auto' } }
+              />
+              <h1 data-testid="recipe-title">{item.strMeal || item.strDrink}</h1>
+              {
           path === `/meals/${id}/in-progress`
             ? <p data-testid="recipe-category">{item.strCategory}</p>
             : <p data-testid="recipe-category">{item.strAlcoholic}</p>
-        }
-            <div>
+          }
+              <img
+                src="/barRecipes.svg"
+                alt="Barra Categoria / Alcoólica"
+                className="bar-recipes-detais"
+              />
+              <img
+                src={ path === `/meals/${id}`
+                  ? '/categoryRecipe.svg'
+                  : '/categoryRecipeDrink.svg' }
+                alt="Category"
+                className="image-category-recipe"
+              />
+            </div>
+            <div className="container-ingredients-recipes">
               <h2>Ingredients</h2>
-              <ul>
-                {
+              <div className="list-container-progress">
+                <ul>
+                  {
                 ingredients.map((ingredient, index) => (
                   ingredient !== null && ingredient.length > 0
                     ? (
-                      <li
-                        key={ index }
-                        data-testid={ `${index}-ingredient-step` }
-                        style={
-                            { textDecoration: ingredientsDone.includes(ingredient)
-                              ? 'line-through solid rgb(0, 0, 0)' : 'none' }
-}
-                      >
-                        {`${ingredient} ${measure[index]}`}
+                      <label key={ index } className="container-list-progress">
                         <input
                           type="checkbox"
                           name={ ingredient }
@@ -177,65 +179,87 @@ function RecipeInProgress() {
                                 .stringify(
                                   { ...recipesInProgress,
                                     [`${type}`]:
-                                    { ...recipesInProgress[`${type}`],
-                                      [`${id}`]: newStorage } },
+                                      { ...recipesInProgress[`${type}`],
+                                        [`${id}`]: newStorage } },
                                 ));
                           } }
                           checked={ ingredientsDone.includes(ingredient) }
                         />
-                      </li>
+                        <li
+                          data-testid={ `${index}-ingredient-step` }
+                          style={
+                              { textDecoration: ingredientsDone.includes(ingredient)
+                                ? 'line-through solid rgb(0, 0, 0)' : 'none' }
+                        }
+                        >
+                          {`${ingredient} ${measure[index]}`}
+
+                        </li>
+                      </label>
                     ) : null
                 ))
           }
-              </ul>
+                </ul>
+              </div>
             </div>
-            <div>
+            <div className="container-instruction-recipes">
               <h2>Instructions</h2>
               <p data-testid="instructions">{item.strInstructions}</p>
             </div>
             {
-            path === `/meals/${id}`
+            path === `/meals/${id}/in-progress`
             && (
-              <iframe
-                width="560"
-                height="315"
-                src={ item.strYoutube }
-                title="Video"
-                data-testid="video"
-              />
+              <div className="container-video-recipes">
+                <h2>Video</h2>
+                <div className="video-container-progress">
+                  <iframe
+                    width="560"
+                    height="315"
+                    src={ item.strYoutube }
+                    title="Video"
+                    data-testid="video"
+                  />
+                </div>
+              </div>
             )
           }
             <button
               data-testid="finish-recipe-btn"
-              style={ { position: 'fixed', bottom: '0', left: '0', width: '100vw' } }
+              className="btn-start-or-continue"
               onClick={ handleRecipeDone }
               disabled={ !teste() }
             >
               Finish Recipe
             </button>
-            <button
-              data-testid="share-btn"
-              style={ { marginBottom: '10vh' } }
-              onClick={ handleCopyClick }
-            >
-              <img src={ shareIcon } alt="Share" />
-            </button>
-            <button
-              onClick={ handleFavorite }
-            >
-              <img
-                data-testid="favorite-btn"
-                src={ !isFavorite ? favoriteIconWhite : favoriteIconBlack }
-                alt={ !isFavorite ? 'FavoriteWhite' : 'FavoriteBlack' }
-              />
-            </button>
-            {
+            <div className="container-fullButton-and-text">
+              <div className="container-buttons-recipes">
+                <button
+                  data-testid="share-btn"
+                  style={ { marginBottom: '10vh' } }
+                  onClick={ handleCopyClick }
+                >
+                  <img src="/buttonShare.svg" alt="Share" />
+                </button>
+                <button
+                  onClick={ handleFavorite }
+                >
+                  <img
+                    data-testid="favorite-btn"
+                    src={ !isFavorite ? '/likeDisable.png' : '/likeActive.svg' }
+                    alt={ !isFavorite ? 'FavoriteWhite' : 'FavoriteBlack' }
+                  />
+                </button>
+                <div className="text-link-copied">
+                  {
             copyLink && <span>Link copied!</span>
-          }
+            }
+                </div>
+              </div>
+            </div>
           </div>
         ))
       }
-    </div>
+    </>
   );
 }
 export default RecipeInProgress;

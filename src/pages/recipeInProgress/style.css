@@ -1,0 +1,27 @@
+.list-container-progress {
+  border: 1px solid #590202;
+  margin: 0 10px;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  
+}
+
+.list-container-progress ul {
+  list-style-type: none;
+  padding-left: 10px;
+}
+
+.container-list-progress {
+  display: flex;
+}
+
+.container-list-progress input {
+  margin-right: 10px;
+}
+
+.video-container-progress {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 100px;
+}
