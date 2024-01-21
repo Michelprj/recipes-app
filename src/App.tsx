@@ -6,7 +6,7 @@ import Profile from './pages/Profile';
 import DoneRecipes from './pages/DoneRecipes';
 import FavoriteRecipes from './pages/FavoriteRecipes';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import RecipeDetails from './pages/RecipeDetails';
+import RecipeDetails from './pages/recipeDetails';
 import RecipeInProgress from './pages/RecipeInProgress';
 
 function App() {

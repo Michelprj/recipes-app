@@ -114,7 +114,15 @@ function FavoriteRecipes() {
 
   return (
     <>
-      <Header iconPage="/iconFavorite.svg">Favorite Recipes</Header>
+      <Header
+        endFirstLetter=""
+        endName=""
+        endIngredients=""
+        iconPage="/iconFavorite.svg"
+      >
+        Favorite Recipes
+
+      </Header>
 
       <button
         data-testid="filter-by-all-btn"
