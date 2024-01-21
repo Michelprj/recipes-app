@@ -147,34 +147,32 @@ function RecipeDetails() {
           }
             <div className="conteiner-recommended-recipe">
               <h2>Recommended</h2>
-              <div className="container-recommended">
-                <div
-                  className="carousel"
-                  ref={ carousel }
-                >
-                  {cards.map((card, index) => (
-                    <div
-                      className="item"
-                      key={ index }
-                      data-testid={ `${index}-recommendation-card` }
-                    >
-                      <div className="image">
-                        <img
-                          src={ card.strDrinkThumb || card.strMealThumb }
-                          alt={ card.strDrink || card.strMeal }
-                          style={ { width: 'auto', height: '10em' } }
-                        />
-                      </div>
-                      <div className="name-item">
-                        <span
-                          data-testid={ `${index}-recommendation-title` }
-                        >
-                          {card.strDrink || card.strMeal}
-                        </span>
-                      </div>
+              <div
+                className="carousel"
+                ref={ carousel }
+              >
+                {cards.map((card, index) => (
+                  <div
+                    className="item"
+                    key={ index }
+                    data-testid={ `${index}-recommendation-card` }
+                  >
+                    <div className="image">
+                      <img
+                        className="img-item"
+                        src={ card.strDrinkThumb || card.strMealThumb }
+                        alt={ card.strDrink || card.strMeal }
+                      />
                     </div>
-                  ))}
-                </div>
+                    <div className="name-item">
+                      <span
+                        data-testid={ `${index}-recommendation-title` }
+                      >
+                        {card.strDrink || card.strMeal}
+                      </span>
+                    </div>
+                  </div>
+                ))}
               </div>
               <div className="buttons">
                 <button onClick={ handleLeftClick } className="buttonLeft">
@@ -195,9 +193,7 @@ function RecipeDetails() {
               ? (
                 <button
                   data-testid="start-recipe-btn"
-                  style={
-                      { position: 'fixed', bottom: '0', left: '0', width: '100vw' }
-                    }
+                  className="btn-start-or-continue"
                   onClick={ () => {
                     navigate(`${path}/in-progress`);
                   } }
@@ -207,9 +203,7 @@ function RecipeDetails() {
               ) : (
                 <button
                   data-testid="start-recipe-btn"
-                  style={
-                      { position: 'fixed', bottom: '0', left: '0', width: '100vw' }
-                      }
+                  className="btn-start-or-continue"
                   onClick={ () => {
                     navigate(`${path}/in-progress`);
                   } }

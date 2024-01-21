@@ -4,43 +4,45 @@
   padding: 0;
 }
 
-.container-recommended {
-  display: flex;
-  max-width: 95vw;
-}
-
-.container-recommended .carousel {
+.carousel {
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
 }
 
-.container-recommended .carousel::-webkit-scrollbar {
+.carousel::-webkit-scrollbar {
   display: none;
 }
 
-.container-recommended .carousel .item {
+.carousel .item {
   border-radius: 5px;
   flex: none;
-  width: 50vw;
+  width: 45vw;
+  height: 220px;
   border: 1px solid #590202;
+  margin: 0 10px;
 }
 
-.conteiner-recommended-recipe .container-recommended .carousel .item .image img {
+.image img {
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
   height: auto;
-  width: 250px;
-  border-radius: 5px;
+  width: 44.5vw;
 }
 
 .carousel .item .name-item span {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin: 10px 0;
+  color: #1A1B1C;
+  font-family: Epilogue;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 10px 0 0 20px;
 }
 
 .buttons {
   text-align: center;
   width: 100%;
+  margin-bottom: 80px;
 }
 
 .buttons button {
@@ -110,10 +112,6 @@
 
 .container-buttons-recipes button:first-child {
   margin-right: 10px;
-}
-
-container-fullButton-and-text button img {
-  height: 25px;
 }
 
 .container-header-recipes .image-category-recipe {
@@ -201,4 +199,21 @@ container-fullButton-and-text button img {
   font-weight: 700;
   margin-top: 25px;
   margin-left: 20px;
+}
+
+.btn-start-or-continue {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  width: 100vw;
+  background-color: #590202;
+  color: white;
+  padding: 12px 0;
+  border-radius: 5px;
+  font-family: Epilogue sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.42px;
+  text-transform: uppercase;
+  border: none;
 }
