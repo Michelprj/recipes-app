@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Login from './pages/login/index';
 import Meals from './pages/Meals';
 import Drinks from './pages/Drinks';
-import Profile from './pages/Profile';
+import Profile from './pages/profile';
 import DoneRecipes from './pages/doneRecipes';
 import FavoriteRecipes from './pages/favoriteRecipes';
 import 'bootstrap/dist/css/bootstrap.min.css';
