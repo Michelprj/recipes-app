@@ -1,0 +1,74 @@
+.container-button-done {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container-button-done button {
+  background-color: transparent;
+  border: none;
+}
+
+.container-done-recipes {
+  border-radius: 10px;
+  border: 0.518px solid #B1B1B1;
+  position: relative;
+  width: 95vw;
+}
+
+.container-done-recipes section {
+  display: flex;
+}
+
+.container-done-recipes section .img-recipe-done {
+  width: 45vw;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.container-done-recipes section .done-recipes-name a {
+  text-decoration: none;
+  color: black;
+  font-family: Epilogue;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.container-done-recipes section .done-recipes-name {
+  margin: 25px 0 0 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.btn-share-button {
+  background: transparent;
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
+.btn-share-button img {
+  height: 25px;
+  width: 25px;
+}
+
+.container-content-done {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 10px;
+  width: 95vw;
+  gap: 20px;
+}
+
+.text-link-copied-share {
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  color: #ecd400;
+}
+
+.container-done-recipes section .done-recipes-name p {
+  font-size: 12px;
+}

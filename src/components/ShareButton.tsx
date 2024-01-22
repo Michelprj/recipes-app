@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import shareIcon from '../images/shareIcon.svg';
+import '../pages/doneRecipes/style.css';
 
 type ShareButtonProps = {
   index: number,
@@ -26,14 +26,17 @@ function ShareButton({ index, type, id }: ShareButtonProps) {
     <>
       <button
         onClick={ handleClick }
+        className="btn-share-button"
       >
         <img
-          src={ shareIcon }
+          src="/buttonShare.svg"
           alt="share"
           data-testid={ `${index}-horizontal-share-btn` }
         />
       </button>
-      { clicked && <span>Link copied!</span>}
+      <div className="text-link-copied-share">
+        { clicked && <span>Link copied!</span>}
+      </div>
     </>
 
   );

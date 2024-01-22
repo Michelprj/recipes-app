@@ -3,7 +3,7 @@ import Login from './pages/login/index';
 import Meals from './pages/Meals';
 import Drinks from './pages/Drinks';
 import Profile from './pages/Profile';
-import DoneRecipes from './pages/DoneRecipes';
+import DoneRecipes from './pages/doneRecipes';
 import FavoriteRecipes from './pages/FavoriteRecipes';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import RecipeDetails from './pages/recipeDetails';
