@@ -28,7 +28,7 @@ function RecipeInProgress() {
   };
   if (thisRecipe.length === 0) {
     const newRecipeInProgress = {
-      ingredientsDone: [], // array de booleanos
+      ingredientsDone: [],
     };
     const newStorage = JSON.parse(JSON.stringify(recipesInProgress));
     newStorage[`${type}`][`${id}`] = newRecipeInProgress;
@@ -143,7 +143,7 @@ function RecipeInProgress() {
                 className="bar-recipes-detais"
               />
               <img
-                src={ path === `/meals/${id}`
+                src={ path === `/meals/${id}/in-progress`
                   ? '/categoryRecipe.svg'
                   : '/categoryRecipeDrink.svg' }
                 alt="Category"
@@ -206,23 +206,6 @@ function RecipeInProgress() {
               <h2>Instructions</h2>
               <p data-testid="instructions">{item.strInstructions}</p>
             </div>
-            {
-            path === `/meals/${id}/in-progress`
-            && (
-              <div className="container-video-recipes">
-                <h2>Video</h2>
-                <div className="video-container-progress">
-                  <iframe
-                    width="560"
-                    height="315"
-                    src={ item.strYoutube }
-                    title="Video"
-                    data-testid="video"
-                  />
-                </div>
-              </div>
-            )
-          }
             <button
               data-testid="finish-recipe-btn"
               className="btn-start-or-continue"
