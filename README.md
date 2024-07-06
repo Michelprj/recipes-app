@@ -1,5 +1,8 @@
 # Recipes App
 
+## Deploy do projeto
+https://recipes-app-nine-eta.vercel.app/
+
 ## Descrição
 
 O Recipes App é um aplicativo de receitas desenvolvido como parte do módulo Front-end do curso de Desenvolvimento Web Full-stack da Trybe. O projeto foi realizado em grupo utilizando as metodologias ágeis Scrum e Kanban.
